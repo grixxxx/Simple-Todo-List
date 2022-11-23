@@ -1,0 +1,44 @@
+@forward "./reset";
+@use "./colors" as *;
+@use "./mixins" as *;
+
+body {
+  @include flexProp;
+
+  main {
+    color: $secondaryClr;
+    text-align: center;
+
+    h1 {
+      font-weight: bold;
+      font-size: 2.55rem;
+    }
+
+    ul {
+      width: 700px;
+      margin-top: 5rem;
+      @include flexProp;
+      align-items: center;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .listItem {
+        width: 300px;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid rgb(37, 37, 37);
+        border-radius: 10px;
+        color: #333333;
+
+        .btnContainer {
+          padding: 0.5rem;
+
+          button:nth-child(1) {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+}

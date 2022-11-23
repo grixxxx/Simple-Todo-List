@@ -1,0 +1,24 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel  build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grixxxx/Simple-Todo-List.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grixxxx/Simple-Todo-List/issues"
+  },
+  "homepage": "https://github.com/grixxxx/Simple-Todo-List#readme",
+  "devDependencies": {
+    "sass": "^1.56.1"
+  }
+}
