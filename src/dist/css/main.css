@@ -137,14 +137,9 @@ table {
   font-family: gilroy-bold;
   src: url(/font/Gilroy-ExtraBold.otf);
 }
-.enterBtn {
-  font-family: Gilroy-light;
-  font-size: 1rem;
-}
-
 .btnContainer {
   padding: 0.5rem;
-  min-width: 7rem;
+  min-width: 5rem;
 }
 .btnContainer > * {
   background-color: transparent;
@@ -158,11 +153,76 @@ table {
   margin-right: 1rem;
 }
 
+.enterBtn {
+  background-color: #1899d6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: gilroy-bold;
+  font-size: 15px;
+  padding: 0.9rem 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.enterBtn:after {
+  background-clip: padding-box;
+  background-color: #1cb0f6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.enterBtn:main,
+.enterBtn:focus {
+  user-select: auto;
+}
+
+.enterBtn:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.enterBtn:disabled {
+  cursor: auto;
+}
+
+@media (width < 30em) {
+  .titleContainer > div, .titleContainer div > div {
+    flex-direction: column;
+  }
+}
+@media (width < 800px) {
+  .titleContainer > div > *, .titleContainer div > div > * {
+    margin-inline: 1rem;
+  }
+  .listItemContainer {
+    padding-inline: 1rem;
+  }
+}
 body {
   display: flex;
   justify-content: center;
   height: 100vh;
-  align-items: center;
+  position: relative;
   font-family: gilroy-bold;
   background-color: #eff7f6;
 }
@@ -175,18 +235,21 @@ body main h1 {
   font-size: 2.55rem;
   color: #333333;
 }
-body main ul {
-  max-width: 50rem;
-  margin: 2rem;
+body main .listItemContainer {
+  height: max(200px, 60vh);
+  margin-top: 2rem;
+  max-width: 60rem;
+  scrollbar-width: thin;
+  overflow-y: scroll;
+}
+body main .listItemContainer ul {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
   word-break: break-all;
 }
-body main ul .listItem {
-  width: 100%;
+body main .listItemContainer ul .listItem {
+  max-width: 100%;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -196,11 +259,39 @@ body main ul .listItem {
   display: flex;
   background-color: #7bdff2;
 }
-body main ul .listItem .listItemText {
-  max-width: 40rem;
+body main .listItemContainer ul .listItem .listItemText {
+  max-width: 60ch;
   font-family: Gilroy-light;
   text-align: start;
   line-height: 1.7;
+  font-size: 1rem;
+}
+
+.titleContainer, .titleContainer div {
+  margin-block: 2rem;
+  width: min(50rem, 100vw);
+}
+.titleContainer div {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.textInput {
+  padding: 0.7rem;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  flex: 1;
+}
+
+footer {
+  position: absolute;
+  bottom: 1rem;
+}
+footer h1 {
+  font-family: Gilroy-light;
+  font-size: 0.9rem;
+  opacity: 0.5;
 }
 
 /*# sourceMappingURL=main.css.map */

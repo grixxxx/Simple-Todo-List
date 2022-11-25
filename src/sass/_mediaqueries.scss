@@ -1,0 +1,14 @@
+@media (width < 30em) {
+  .titleContainer > div {
+    flex-direction: column;
+  }
+}
+
+@media (width < 800px) {
+  .titleContainer > div > * {
+    margin-inline: 1rem;
+  }
+  .listItemContainer {
+    padding-inline: 1rem;
+  }
+}
