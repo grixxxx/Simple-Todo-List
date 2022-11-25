@@ -9,8 +9,11 @@ btnEl.addEventListener("click", () => {
     alert("error");
   } else {
     const listItem = document.createElement("li");
+    const listItemText = document.createElement("p");
     const btnContainer = document.createElement("div");
-    listItem.innerText = inputEl.value;
+    listItemText.innerText = inputEl.value;
+    listItemText.classList.add("listItemText");
+    listItem.appendChild(listItemText);
     listItem.classList.add("listItem");
     list.appendChild(listItem);
     listItem.appendChild(btnContainer);
@@ -19,15 +22,16 @@ btnEl.addEventListener("click", () => {
     inputEl.value = "";
 
     const doneBtn = document.createElement("button");
-    doneBtn.innerText = "Done";
+    doneBtn.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
     btnContainer.appendChild(doneBtn);
 
     doneBtn.addEventListener("click", () => {
-      listItem.style.cssText = "text-decoration:line-through;   color: gray";
+      listItemText.style.cssText =
+        "text-decoration:line-through;   color: gray";
     });
 
     const delBtn = document.createElement("button");
-    delBtn.innerText = "Delete";
+    delBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
     btnContainer.appendChild(delBtn);
 
     delBtn.addEventListener("click", () => {

@@ -33,8 +33,19 @@ table {
   border-spacing: 0;
 }
 
+@font-face {
+  font-family: Gilroy-light;
+  src: url("Gilroy-Light.d9de02b2.otf");
+}
+
+@font-face {
+  font-family: gilroy-bold;
+  src: url("Gilroy-ExtraBold.b678cb05.otf");
+}
+
 body {
   justify-content: center;
+  font-family: gilroy-bold;
   display: flex;
 }
 

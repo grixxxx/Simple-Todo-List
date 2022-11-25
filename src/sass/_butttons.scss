@@ -1,0 +1,26 @@
+@use "./colors" as *;
+@use "./fonts" as *;
+
+.enterBtn {
+  font-family: $fontLight;
+  font-size: 1rem;
+}
+
+.btnContainer {
+  padding: 0.5rem;
+  min-width: 7rem;
+
+  & > * {
+    background-color: transparent;
+    border: none;
+
+    i {
+      font-size: 1.5rem;
+      color: $secondaryClr;
+    }
+  }
+
+  button:nth-child(1) {
+    margin-right: 1rem;
+  }
+}
