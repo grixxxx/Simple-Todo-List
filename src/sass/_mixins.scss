@@ -1,4 +1,9 @@
-@mixin flexProp {
+@mixin flexProp($justify, $align, $direction, $gap) {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  gap: $gap;
 }

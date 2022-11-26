@@ -1,14 +1,27 @@
+@use "./mixins" as *;
+
 @media (width < 30em) {
   .titleContainer > div {
-    flex-direction: column;
+    @include flexProp(none, none, column, none);
   }
 }
 
 @media (width < 800px) {
-  .titleContainer > div > * {
-    margin-inline: 1rem;
+  .titleContainer {
+    @include flexProp(none, none, column, 1.5rem);
+
+    .searchInput {
+      width: 100%;
+      padding: 1rem;
+    }
   }
+
   .listItemContainer {
     padding-inline: 1rem;
+  }
+
+  .enterBtn {
+    bottom: 2rem;
+    right: 2rem;
   }
 }

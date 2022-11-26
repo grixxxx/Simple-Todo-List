@@ -123,11 +123,14 @@ table {
   border-spacing: 0;
 }
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
+* {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  // outline: 1px solid red;
+}
+::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.466);
+}
+
+textarea {
+  outline: none;
 }

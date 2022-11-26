@@ -2,16 +2,21 @@
 @use "./colors" as *;
 
 .createModal {
-  padding: 2rem;
+  padding: 2rem 3rem;
   background-color: $accentClr;
   border: none;
-  width: 50vw;
-  height: 50vh;
-  transform: translate(50%, 50%);
+
   word-break: break-all;
   color: white;
+  position: relative;
+
+  &::-webkit-backdrop {
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
 
   &::backdrop {
+    -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
   }
 
@@ -24,7 +29,6 @@
     color: $primaryClr;
     width: 100%;
     resize: none;
-    height: 50px;
     scrollbar-width: none;
   }
 
@@ -33,7 +37,7 @@
     font-family: $fontLight;
     font-size: 1.5rem;
     margin-top: 1.5rem;
-    height: 300px;
+
     scrollbar-width: thin;
   }
 }
