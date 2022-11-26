@@ -1,0 +1,39 @@
+@use "./fonts" as *;
+@use "./colors" as *;
+
+.createModal {
+  padding: 2rem;
+  background-color: $accentClr;
+  border: none;
+  width: 50vw;
+  height: 50vh;
+  transform: translate(50%, 50%);
+  word-break: break-all;
+  color: white;
+
+  &::backdrop {
+    backdrop-filter: blur(2px);
+  }
+
+  .modalTitle {
+    font-size: 2.5rem;
+    background-color: transparent;
+    padding-bottom: 0.5rem;
+    border: 0;
+    font-family: $fontBold;
+    color: $primaryClr;
+    width: 100%;
+    resize: none;
+    height: 50px;
+    scrollbar-width: none;
+  }
+
+  .modalBody {
+    @extend .modalTitle;
+    font-family: $fontLight;
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    height: 300px;
+    scrollbar-width: thin;
+  }
+}

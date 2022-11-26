@@ -15,22 +15,27 @@
     <main>
       <section class="titleContainer">
         <h1>Simple Task List</h1>
-        <div>
-          <input
-            class="textInput"
-            type="text"
-            name=""
-            id=""
-            placeholder="Input some text  here"
-          />
-          <button class="enterBtn">ENTER</button>
-        </div>
+
+        <input class="searchInput" type="text" placeholder="Search" />
       </section>
 
-      <section class="listItemContainer">
-        <ul></ul>
-      </section>
+      <button class="enterBtn">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+
+      <ul></ul>
     </main>
+
+    <dialog class="createModal">
+      <button class="closeBtn">close</button>
+      <textarea class="modalTitle" placeholder="Title"></textarea>
+
+      <textarea
+        class="modalBody"
+        placeholder="What's in your mind today?"
+      ></textarea>
+      <button class="createBtn">CREATE TASK</button>
+    </dialog>
 
     <footer>
       <h1>© 2022 Delmer John Ballesteros. All Rights Reserved.</h1>

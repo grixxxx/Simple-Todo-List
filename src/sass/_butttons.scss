@@ -1,74 +1,75 @@
 @use "./colors" as *;
 @use "./fonts" as *;
 
-.btnContainer {
+.listItemContainer-button {
   padding: 0.5rem;
   min-width: 5rem;
+  align-self: end;
 
   & > * {
     background-color: transparent;
     border: none;
+    cursor: pointer;
 
     i {
-      font-size: 1.5rem;
-      color: $secondaryClr;
+      font-size: 1.3rem;
+      color: $textClr;
+      opacity: 0.5;
     }
   }
 
   button:nth-child(1) {
     margin-right: 1rem;
+
+    &:hover i {
+      color: $accentClr;
+    }
+  }
+
+  button:nth-child(2):hover i {
+    color: #f94144;
   }
 }
 
 .enterBtn {
-  background-color: #1899d6;
-  border: solid transparent;
-  border-radius: 16px;
-  border-width: 0 0 4px;
-  box-sizing: border-box;
-  color: #ffffff;
+  width: 4rem;
+  height: 4rem;
+  background-color: $accentClr;
+  border: none;
+  border-radius: 50%;
   cursor: pointer;
-  display: inline-block;
-  font-family: $fontBold;
-  font-size: 15px;
+  position: fixed;
+  bottom: 5rem;
+  right: 5rem;
 
-  padding: 0.9rem 2rem;
-  text-align: center;
-  text-transform: uppercase;
-  touch-action: manipulation;
-  transform: translateZ(0);
-  transition: filter 0.2s;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
+  i {
+    font-size: 1.5rem;
+    color: $primaryClr;
+  }
 }
 
-.enterBtn:after {
-  background-clip: padding-box;
-  background-color: #1cb0f6;
-  border: solid transparent;
-  border-radius: 16px;
-  border-width: 0 0 4px;
-  bottom: -4px;
-  content: "";
-  left: 0;
+.createBtn {
   position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
+  bottom: 1.5rem;
+  right: 2rem;
+  border: none;
+  background-color: $secondaryClr;
+  color: $accentClr;
+  padding: 1rem 1.5rem;
+  border-radius: 30px;
+  font-family: $fontBold;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.enterBtn:main,
-.enterBtn:focus {
-  user-select: auto;
-}
-
-.enterBtn:hover:not(:disabled) {
-  filter: brightness(1.1);
-  -webkit-filter: brightness(1.1);
-}
-
-.enterBtn:disabled {
-  cursor: auto;
+.closeBtn {
+  border: none;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.514);
+  font-size: 1rem;
+  font-family: $fontLight;
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  cursor: pointer;
 }
