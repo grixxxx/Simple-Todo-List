@@ -5,6 +5,7 @@
   padding: 2rem 3rem;
   background-color: $accentClr;
   border: none;
+  animation: fade-in 500ms ease;
 
   word-break: break-all;
   color: white;
@@ -18,6 +19,7 @@
   &::backdrop {
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
+    animation: fade-out 500ms ease;
   }
 
   .modalTitle {
@@ -39,5 +41,14 @@
     margin-top: 1.5rem;
 
     scrollbar-width: thin;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

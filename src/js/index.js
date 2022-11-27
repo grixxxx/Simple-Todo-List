@@ -24,12 +24,14 @@ createBtn.addEventListener("click", () => {
   if (!modalTitle.value) {
     alert("Error");
   } else {
+    modal.close();
     const listItem = document.createElement("li");
     listItem.classList.add("listItem");
     const listItemTitle = document.createElement("h1");
     listItemTitle.classList.add("listItemContainer-title");
     const listItemText = document.createElement("p");
     listItemText.classList.add("listItemContainer-message");
+
     listItemTitle.textContent = modalTitle.value;
 
     listItemText.textContent = modalBody.value;
@@ -46,23 +48,6 @@ createBtn.addEventListener("click", () => {
     doneBtn.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
     delBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
 
-    list.appendChild(listItem);
-
-    listItemContainer.appendChild(listItemTitle);
-    listItemContainer.appendChild(listItemText);
-    listItem.appendChild(listItemContainer);
-
-    listItem.appendChild(buttonContainer);
-    buttonContainer.appendChild(doneBtn);
-    buttonContainer.appendChild(delBtn);
-
-    list.removeChild(emptyMessage);
-
-    modal.close();
-
-    modalBody.value = "";
-    modalTitle.value = "";
-
     doneBtn.addEventListener("click", () => {
       listItemTitle.style.cssText =
         "text-decoration:line-through;   color: gray";
@@ -72,7 +57,23 @@ createBtn.addEventListener("click", () => {
 
     delBtn.addEventListener("click", () => {
       list.removeChild(listItem);
+      listItem.style.cssText = "animation: fade-in 300ms ease-out;";
     });
+
+    list.appendChild(listItem);
+
+    listItemContainer.appendChild(listItemTitle);
+
+    listItemContainer.appendChild(listItemText);
+
+    listItem.appendChild(listItemContainer);
+
+    modalBody.value = "";
+    modalTitle.value = "";
+
+    listItem.appendChild(buttonContainer);
+    buttonContainer.appendChild(doneBtn);
+    buttonContainer.appendChild(delBtn);
   }
 });
 
@@ -81,8 +82,6 @@ const emptyMessage = document.createElement("p");
 emptyMessage.classList.add("emptyMessage");
 
 emptyMessage.textContent = "looks like you don't have plans for today....";
-emptyMessage.style.cssText = "color: black; opacity: 0.2; font-size: 0.8rem";
-
-if (!list.contains(listItem)) {
-  list.appendChild(emptyMessage);
-}
+emptyMessage.style.cssText =
+  "color: black; opacity: 0.2; font-size: clamp(0.8rem,3vw,1.2rem);  transform: translateY(15vh)";
+list.appendChild(emptyMessage);

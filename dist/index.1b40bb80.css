@@ -167,13 +167,21 @@ textarea {
   background-color: #2a9d8f;
   border: none;
   padding: 2rem 3rem;
+  animation: .5s fade-in;
   position: relative;
+}
+
+.createModal::-webkit-backdrop {
+  -webkit-backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
 }
 
 .createModal::backdrop {
   -webkit-backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
+  animation: .5s fade-out;
 }
 
 .createModal .modalTitle, .createModal .modalBody {
@@ -195,6 +203,16 @@ textarea {
   font-size: 1.5rem;
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 body {
   justify-content: center;
   align-items: none;
@@ -202,7 +220,7 @@ body {
   gap: none;
   min-height: 100vh;
   background-color: #dbdbdb;
-  font-family: gilroy-bold;
+  font-family: Gilroy-light;
   display: flex;
   position: relative;
 }
@@ -228,6 +246,7 @@ body main ul .listItem {
   align-items: none;
   max-width: 100%;
   color: #333;
+  z-index: 1;
   background-color: #fff;
   border-radius: 10px;
   flex-direction: column;
@@ -282,6 +301,7 @@ body main ul .listItem .listItemContainer .listItemContainer-message {
 
 .titleContainer h1 {
   color: #2a9d8f;
+  font-family: gilroy-bold;
   font-size: clamp(2rem, 5vw, 3rem);
 }
 
