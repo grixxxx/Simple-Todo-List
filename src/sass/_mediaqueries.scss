@@ -25,3 +25,9 @@
     right: 2rem;
   }
 }
+
+@media (width > 390px) {
+  ul {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}

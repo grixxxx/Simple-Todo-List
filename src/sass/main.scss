@@ -17,12 +17,13 @@ body {
     color: $secondaryClr;
     text-align: center;
     margin-block: 2rem;
-    width: 80vw;
+    width: calc(80vw + 2em);
 
     ul {
-      @include flexProp(none, none, column, 1rem);
-
+      display: grid;
+      grid-gap: 1.5em;
       word-break: break-all;
+      position: relative;
 
       .listItem {
         @include flexProp(space-between, none, column, 1rem);
@@ -37,15 +38,13 @@ body {
 
         .listItemContainer {
           max-width: 90ch;
-          font-family: $fontLight;
           text-align: start;
           line-height: 1.7;
-          font-size: 1rem;
 
           .listItemContainer-title {
             font-family: $fontLight;
             font-weight: bold;
-            font-size: 1.8rem;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
           }
 
           .listItemContainer-message {
@@ -79,9 +78,14 @@ body {
   }
 
   h1 {
-    color: $accentClr;
+    color: $textClr;
     font-size: clamp(2rem, 5vw, 3rem);
     font-family: $fontBold;
+    position: relative;
+
+    span {
+      color: $accentClr;
+    }
   }
 }
 

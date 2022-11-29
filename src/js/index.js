@@ -1,14 +1,22 @@
-const btnEl = document.querySelector("button");
+const modalBtn = document.querySelector("button");
 const list = document.querySelector("ul");
 
 const modal = document.querySelector(".createModal");
-const createBtn = document.querySelector(".createBtn");
 const modalBody = document.querySelector(".modalBody");
 const modalTitle = document.querySelector(".modalTitle");
 
-btnEl.addEventListener("click", () => {
+modalBtn.addEventListener("click", () => {
   modal.showModal();
 });
+
+const emptyMessage = document.createElement("p");
+
+emptyMessage.classList.add("emptyMessage");
+
+emptyMessage.textContent = "looks like you don't have plans for today....";
+
+emptyMessage.style.cssText =
+  "color: black; opacity: 0.2; font-size: clamp(0.8rem,3vw,1.2rem);  transform: translateY(15vh); position: absolute; left: 0; right: 0 ;";
 
 const closeBtn = document.querySelector(".closeBtn");
 
@@ -20,14 +28,9 @@ closeBtn.addEventListener("click", () => {
 
 const listItem = document.createElement("li");
 
-const notesArr = [];
+const notesArr = JSON.parse(localStorage.getItem("notesArr") || "[]");
 
-const notesList = JSON.parse(localStorage.getItem("notesArr") || "[]");
-
-console.log(notesList);
-
-const doneBtn = document.createElement("button");
-const delBtn = document.createElement("button");
+const createBtn = document.querySelector(".createBtn");
 
 createBtn.addEventListener("click", () => {
   if (!modalTitle.value) {
@@ -35,21 +38,27 @@ createBtn.addEventListener("click", () => {
   } else {
     modal.close();
 
-    const listItem = document.createElement("li");
+    const doneBtn = document.createElement("button"),
+      delBtn = document.createElement("button");
+
+    const listItem = document.createElement("li"),
+      listItemTitle = document.createElement("h1"),
+      listItemText = document.createElement("p");
     listItem.classList.add("listItem");
-    const listItemTitle = document.createElement("h1");
+
     listItemTitle.classList.add("listItemContainer-title");
-    const listItemText = document.createElement("p");
+
     listItemText.classList.add("listItemContainer-message");
 
     listItemTitle.textContent = modalTitle.value;
 
     listItemText.textContent = modalBody.value;
 
-    const listItemContainer = document.createElement("div");
+    const listItemContainer = document.createElement("div"),
+      buttonContainer = document.createElement("div");
+
     listItemContainer.classList.add("listItemContainer");
 
-    const buttonContainer = document.createElement("div");
     buttonContainer.classList.add("listItemContainer-button");
 
     doneBtn.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
@@ -62,6 +71,7 @@ createBtn.addEventListener("click", () => {
         "text-decoration:line-through;   color: gray";
     });
 
+    //TODO:
     delBtn.addEventListener("click", () => {
       list.removeChild(listItem);
     });
@@ -73,13 +83,14 @@ createBtn.addEventListener("click", () => {
 
     listItem.appendChild(listItemContainer);
 
-    modalBody.value = "";
-    modalTitle.value = "";
-
     listItem.appendChild(buttonContainer);
     buttonContainer.appendChild(doneBtn);
     buttonContainer.appendChild(delBtn);
 
+    modalBody.value = "";
+    modalTitle.value = "";
+
+    //FIXME:
     let notes = {
       title: listItemTitle.textContent,
       body: listItemText.textContent,
@@ -90,32 +101,28 @@ createBtn.addEventListener("click", () => {
   }
 });
 
-notesList.forEach((notes) => {
-  let liTags = `<li class="listItem">
+notesArr.forEach((notes) => {
+  const liTag = document.createElement("li");
+  liTag.classList.add("listItem");
+
+  liTag.innerHTML = `
   <div class="listItemContainer">
     <h1 class="listItemContainer-title">${notes.title}</h1>
     <p class="listItemContainer-message">${notes.body}</p>
   </div>
   <div class="listItemContainer-button">
-    <button><i class="fa-solid fa-circle-check"></i></button
-    ><button>
-      <i class="fa-solid fa-trash"></i>
-    </button>
+    <button><i class="fa-solid fa-circle-check"></i></button>
+    <button><i class="fa-solid fa-trash"></i></button>
   </div>
-</li>
 `;
-
-  const liTag = document.createElement("li");
-  liTag.innerHTML = liTags;
   list.appendChild(liTag);
   localStorage.setItem("notesArr", JSON.stringify(notesArr));
 });
 
-const emptyMessage = document.createElement("p");
+list.appendChild(emptyMessage);
 
-emptyMessage.classList.add("emptyMessage");
-
-emptyMessage.textContent = "looks like you don't have plans for today....";
-emptyMessage.style.cssText =
-  "color: black; opacity: 0.2; font-size: clamp(0.8rem,3vw,1.2rem);  transform: translateY(15vh)";
-list.append(emptyMessage);
+if (list) {
+  list.appendChild(emptyMessage);
+} else {
+  list.removeChild(emptyMessage);
+}
