@@ -123,9 +123,13 @@ table {
   border-spacing: 0;
 }
 
-* {
+*,
+*::before,
+*::after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 ::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.466);

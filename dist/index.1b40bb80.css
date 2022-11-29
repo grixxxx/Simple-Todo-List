@@ -33,8 +33,10 @@ table {
   border-spacing: 0;
 }
 
-* {
+*, :before, :after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 ::-webkit-input-placeholder {
@@ -152,10 +154,6 @@ textarea {
     padding: 1rem;
   }
 
-  .listItemContainer {
-    padding-inline: 1rem;
-  }
-
   .enterBtn {
     bottom: 2rem;
     right: 2rem;
@@ -173,6 +171,7 @@ textarea {
   color: #fff;
   background-color: #ff773d;
   border: none;
+  margin: auto;
   padding: 2rem 3rem;
   animation: .5s fade-in;
   position: relative;
@@ -256,7 +255,7 @@ body main ul .listItem {
   border-radius: 10px;
   flex-direction: column;
   gap: 1rem;
-  padding: 1.5rem 3rem;
+  padding: 1.5em 2em;
   display: flex;
   box-shadow: 0 10px 20px #0003;
 }
