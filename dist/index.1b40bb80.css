@@ -79,7 +79,7 @@ textarea {
 }
 
 .listItemContainer-button button:nth-child(1):hover i {
-  color: #2a9d8f;
+  color: #ff773d;
 }
 
 .listItemContainer-button button:nth-child(2):hover i {
@@ -90,7 +90,7 @@ textarea {
   width: 4rem;
   height: 4rem;
   cursor: pointer;
-  background-color: #2a9d8f;
+  background-color: #ff773d;
   border: none;
   border-radius: 50%;
   position: fixed;
@@ -104,7 +104,7 @@ textarea {
 }
 
 .createBtn {
-  color: #2a9d8f;
+  color: #ff773d;
   cursor: pointer;
   float: right;
   background-color: #dbdbdb;
@@ -164,7 +164,7 @@ textarea {
 .createModal {
   word-break: break-all;
   color: #fff;
-  background-color: #2a9d8f;
+  background-color: #ff773d;
   border: none;
   padding: 2rem 3rem;
   animation: .5s fade-in;
@@ -219,7 +219,7 @@ body {
   flex-direction: none;
   gap: none;
   min-height: 100vh;
-  background-color: #dbdbdb;
+  background-color: #fff;
   font-family: Gilroy-light;
   display: flex;
   position: relative;
@@ -265,9 +265,9 @@ body main ul .listItem .listItemContainer {
 }
 
 body main ul .listItem .listItemContainer .listItemContainer-title {
-  opacity: .7;
-  font-family: gilroy-bold;
+  font-family: Gilroy-light;
   font-size: 1.8rem;
+  font-weight: bold;
 }
 
 body main ul .listItem .listItemContainer .listItemContainer-message {
@@ -285,6 +285,7 @@ body main ul .listItem .listItemContainer .listItemContainer-message {
 }
 
 .titleContainer .searchInput {
+  background: #dbdbdb;
   border: none;
   border-radius: 10px;
   padding-inline: 1.5rem;
@@ -292,7 +293,7 @@ body main ul .listItem .listItemContainer .listItemContainer-message {
 }
 
 .titleContainer .searchInput:focus {
-  outline: 1px solid #2a9d8f;
+  outline: 1px solid #ff773d;
 }
 
 .titleContainer .searchInput::-webkit-input-placeholder {
@@ -300,7 +301,7 @@ body main ul .listItem .listItemContainer .listItemContainer-message {
 }
 
 .titleContainer h1 {
-  color: #2a9d8f;
+  color: #ff773d;
   font-family: gilroy-bold;
   font-size: clamp(2rem, 5vw, 3rem);
 }

@@ -11,7 +11,7 @@ body {
   min-height: 100vh;
   position: relative;
   font-family: $fontLight;
-  background-color: $secondaryClr;
+  background-color: $primaryClr;
 
   main {
     color: $secondaryClr;
@@ -43,14 +43,14 @@ body {
           font-size: 1rem;
 
           .listItemContainer-title {
-            font-family: $fontBold;
+            font-family: $fontLight;
+            font-weight: bold;
             font-size: 1.8rem;
-            opacity: 0.7;
           }
 
           .listItemContainer-message {
-            opacity: 0.7;
             font-size: 1.2rem;
+            opacity: 0.7;
           }
         }
       }
@@ -67,6 +67,7 @@ body {
     font-family: $fontLight;
     border-radius: 10px;
     border: none;
+    background: $secondaryClr;
 
     &:focus {
       outline: 1px solid $accentClr;
