@@ -165,10 +165,10 @@ textarea {
   border: 1px solid #dbdbdb;
   position: absolute;
   right: 0;
-  opacity: 0;
+  visibility: hidden;
   top: 0;
   transition: 0.3s ease;
-  pointer-events: none;
+  opacity: 0;
   padding: 1em 1.5em;
   width: 9rem;
   display: grid;
@@ -190,8 +190,8 @@ textarea {
   cursor: pointer;
 }
 .listItemContainer-button > *:focus + ul.sidebarMenu {
+  visibility: visible;
   opacity: 1;
-  pointer-events: all;
   transform: translateY(0);
 }
 
@@ -285,7 +285,7 @@ textarea {
   }
 }
 .createModal {
-  padding: 2rem 3rem;
+  padding: max(2rem, 2vw);
   background-color: #ff773d;
   border: none;
   animation: fade-in 500ms ease;

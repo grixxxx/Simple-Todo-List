@@ -12,10 +12,10 @@
     border: 1px solid $secondaryClr;
     position: absolute;
     right: 0;
-    opacity: 0;
+    visibility: hidden;
     top: 0;
     transition: 0.3s ease;
-    pointer-events: none;
+    opacity: 0;
     padding: 1em 1.5em;
     width: 9rem;
     display: grid;
@@ -41,8 +41,8 @@
     cursor: pointer;
 
     &:focus + ul.sidebarMenu {
+      visibility: visible;
       opacity: 1;
-      pointer-events: all;
       transform: translateY(0);
     }
   }

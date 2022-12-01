@@ -64,8 +64,8 @@ textarea {
 }
 
 .listItemContainer-button .sidebarMenu {
+  visibility: hidden;
   opacity: 0;
-  pointer-events: none;
   width: 9rem;
   background: #fff;
   border: 1px solid #dbdbdb;
@@ -98,8 +98,8 @@ textarea {
 }
 
 .listItemContainer-button > :focus + ul.sidebarMenu {
+  visibility: visible;
   opacity: 1;
-  pointer-events: all;
   transform: translateY(0);
 }
 
@@ -202,7 +202,7 @@ textarea {
   background-color: #ff773d;
   border: none;
   margin: auto;
-  padding: 2rem 3rem;
+  padding: max(2rem, 2vw);
   animation: .5s fade-in;
   position: relative;
 }

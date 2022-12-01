@@ -23,7 +23,7 @@ closeBtn.addEventListener("click", () => {
 const createBtn = document.querySelector(".createBtn");
 
 function showNotes() {
-  notesArr.forEach((note) => {
+  notesArr.forEach((note, index) => {
     let listOfItem = `<li class="listItem">
           <div class="listItemContainer">
             <h1 class="listItemContainer-title">${note.title}</h1>
@@ -42,7 +42,7 @@ function showNotes() {
             </button>
             <ul class="sidebarMenu">
               <li>Edit</li>
-              <li>Delete</li>
+              <li onclick="deleteNote(${index})">Delete</li>
             </ul>
           </div>
         </li>
@@ -52,6 +52,13 @@ function showNotes() {
   });
 }
 showNotes();
+
+function deleteNote(noteId) {
+  notesArr.splice(noteId, 1);
+  document.querySelectorAll(".listItem").forEach((items) => items.remove());
+  localStorage.setItem("notesArr", JSON.stringify(notesArr));
+  showNotes();
+}
 
 createBtn.addEventListener("click", () => {
   if (!modalBody.value) {

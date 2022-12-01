@@ -2,7 +2,7 @@
 @use "./colors" as *;
 
 .createModal {
-  padding: 2rem 3rem;
+  padding: max(2rem, 2vw);
   background-color: $accentClr;
   border: none;
   animation: fade-in 500ms ease;
