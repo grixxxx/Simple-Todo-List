@@ -189,13 +189,6 @@ textarea {
   border: none;
   cursor: pointer;
 }
-.listItemContainer-button > * img {
-  width: 1.5rem;
-  opacity: 0.5;
-}
-.listItemContainer-button > *:hover img {
-  opacity: 1;
-}
 .listItemContainer-button > *:focus + ul.sidebarMenu {
   opacity: 1;
   pointer-events: all;

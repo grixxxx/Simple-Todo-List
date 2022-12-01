@@ -26,7 +26,12 @@ function showNotes() {
 
           <div class="listItemContainer-button">
             <button class="listItemMenu">
-              <img src="./assets/option.png" alt="menu" />
+              <svg width="25" height="8" viewBox="0 0 25 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="4.06422" cy="3.55263" rx="3.07045" ry="3.55263" fill="#333333" fill-opacity="0.5"/>
+<ellipse cx="12.6615" cy="3.55263" rx="3.07045" ry="3.55263" fill="#333333" fill-opacity="0.5"/>
+<ellipse cx="21.2588" cy="3.55263" rx="3.07045" ry="3.55263" fill="#333333" fill-opacity="0.5"/>
+</svg>
+
             </button>
             <ul class="sidebarMenu">
               <li>Edit</li>
@@ -57,13 +62,13 @@ createBtn.addEventListener("click", ()=>{
     }
 });
 setInterval(()=>{
-    if (!modalBody.value) {
+    if (!modalBody.value && !modalTitle.value) {
         modalCreateBtn.setAttribute("disabled", "");
         modalCreateBtn.style.cssText = "background-color: transparent; color: #dbdbdb; cursor: not-allowed; ";
     } else {
         modalCreateBtn.removeAttribute("disabled");
         modalCreateBtn.style.cssText = "background-color: #dbdbdb; color: #ff773d";
     }
-}, 1000);
+}, 500);
 
 //# sourceMappingURL=index.de5c0784.js.map
