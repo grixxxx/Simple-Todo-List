@@ -23,7 +23,7 @@
 }
 
 @media (width > 390px) {
-  ul {
+  .note-container {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 }
