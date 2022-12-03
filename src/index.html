@@ -16,14 +16,28 @@
 "
     />
 
-    <link rel="stylesheet" href="./dist/css/main.css" />
     <title>noted.</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="./dist/css/main.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
-
     <link rel="shortcut icon" href="./assets/newLogo.png" type="image/x-icon" />
+
+    <style>
+      .swal-text {
+        font-size: clamp(0.94rem, 3vw, 1rem);
+      }
+      .swal-button-container > .swal-button:focus {
+        box-shadow: none;
+      }
+
+      .swal-button-container > .swal-button--cancel {
+        border: none;
+        background-color: transparent;
+      }
+    </style>
   </head>
   <body>
     <main>
@@ -37,26 +51,7 @@
         <i class="fa-solid fa-plus"></i>
       </button>
 
-      <ul class="note-container">
-        <!-- <li class="listItem">
-          <div class="listItemContainer">
-            <h1 class="listItemContainer-title">${note.title}</h1>
-
-            <p class="listItemContainer-message">${note.body}</p>
-          </div>
-
-          <div class="listItemContainer-button">
-            <button class="listItemMenu">
-              <img src="./assets/option.png" alt="menu" />
-            </button>
-
-            <ul class="sidebarMenu">
-              <li>Edit</li>
-              <li>Delete</li>
-            </ul>
-          </div>
-        </li> -->
-      </ul>
+      <ul class="note-container"></ul>
     </main>
 
     <dialog class="createModal">

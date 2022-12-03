@@ -7,6 +7,10 @@
   align-self: end;
   position: relative;
 
+  .listItemMenu {
+    cursor: pointer;
+  }
+
   .sidebarMenu {
     background: $primaryClr;
     border: 1px solid $secondaryClr;
@@ -16,21 +20,23 @@
     top: 0;
     transition: 0.3s ease;
     opacity: 0;
-    padding: 1em 1.5em;
-    width: 9rem;
+
     display: grid;
     place-items: center;
     transform: translateY(-0.9rem);
+    width: 9em;
 
-    li {
-      opacity: 0.7;
-
-      &:nth-child(1) {
-        padding-bottom: 1em;
-      }
+    button {
+      padding: 1em 3em;
+      width: 100%;
+      cursor: pointer;
+      font-family: $fontLight;
+      border: none;
+      background-color: transparent;
 
       &:hover {
-        opacity: 1;
+        background-color: #f3f3f3;
+        color: $accentClr;
       }
     }
   }
@@ -38,7 +44,6 @@
   & > * {
     background-color: transparent;
     border: none;
-    cursor: pointer;
 
     &:focus + ul.sidebarMenu {
       visibility: visible;
@@ -84,13 +89,13 @@
     transform: translateY(0);
   }
   &:hover {
-    box-shadow: 0px 4px 0px 0px #333333;
+    box-shadow: 0px 4px 0px 0px #33333345;
     transform: translateY(-4px);
   }
 
   &:focus {
     transform: translateY(0);
-    box-shadow: 0px 0px 0px 0px #333333;
+    box-shadow: 0px 0px 0px 0px #33333345;
   }
 }
 

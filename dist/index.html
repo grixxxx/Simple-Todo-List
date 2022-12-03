@@ -10,11 +10,26 @@
     <meta name="description" content="noted - It is a simple yet effective and user-friendly note pad that can help you organize your important tasks. be backed up without requiring an account.
 ">
 
-    <link rel="stylesheet" href="/index.1b40bb80.css">
     <title>noted.</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="/index.1b40bb80.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-
     <link rel="shortcut icon" href="/newLogo.167de246.png" type="image/x-icon">
+
+    <style>.swal-text {
+  font-size: clamp(.94rem, 3vw, 1rem);
+}
+
+.swal-button-container > .swal-button:focus {
+  box-shadow: none;
+}
+
+.swal-button-container > .swal-button--cancel {
+  background-color: #0000;
+  border: none;
+}
+
+</style>
   </head>
   <body>
     <main>
@@ -28,26 +43,7 @@
         <i class="fa-solid fa-plus"></i>
       </button>
 
-      <ul class="note-container">
-        <!-- <li class="listItem">
-          <div class="listItemContainer">
-            <h1 class="listItemContainer-title">${note.title}</h1>
-
-            <p class="listItemContainer-message">${note.body}</p>
-          </div>
-
-          <div class="listItemContainer-button">
-            <button class="listItemMenu">
-              <img src="./assets/option.png" alt="menu" />
-            </button>
-
-            <ul class="sidebarMenu">
-              <li>Edit</li>
-              <li>Delete</li>
-            </ul>
-          </div>
-        </li> -->
-      </ul>
+      <ul class="note-container"></ul>
     </main>
 
     <dialog class="createModal">

@@ -6,16 +6,20 @@ const modalTitle = document.querySelector(".modalTitle");
 const modalCreateBtn = document.querySelector(".createBtn");
 const notesArr = JSON.parse(localStorage.getItem("notesArr") || "[]");
 modalBtn.addEventListener("click", ()=>{
+    modal.style.cssText = "animation: fade-in 500ms ease;";
     modal.showModal();
 });
 const closeBtn = document.querySelector(".closeBtn");
 closeBtn.addEventListener("click", ()=>{
-    modal.close();
-    modalBody.value = "";
-    modalTitle.value = "";
+    modal.style.cssText = "animation: fade-out 300ms ease;";
+    setTimeout(()=>{
+        modal.close();
+        modalBody.value = "";
+        modalTitle.value = "";
+    }, 300);
 });
 const createBtn = document.querySelector(".createBtn");
-function showNotes() {
+async function showNotes() {
     notesArr.forEach((note, index)=>{
         let listOfItem = `<li class="listItem">
           <div class="listItemContainer">
@@ -34,8 +38,7 @@ function showNotes() {
 
             </button>
             <ul class="sidebarMenu">
-              <li>Edit</li>
-              <li onclick="deleteNote(${index})">Delete</li>
+              <button onclick ="deleteNote(${index})">Delete</button>
             </ul>
           </div>
         </li>
@@ -45,27 +48,46 @@ function showNotes() {
 }
 showNotes();
 function deleteNote(noteId) {
-    notesArr.splice(noteId, 1);
-    document.querySelectorAll(".listItem").forEach((items)=>items.remove());
-    localStorage.setItem("notesArr", JSON.stringify(notesArr));
-    showNotes();
+    swal({
+        title: "Are\xa0you\xa0sure?",
+        text: "Once\xa0deleted,\xa0you\xa0will\xa0not\xa0be\xa0able\xa0to\xa0recover\xa0this\xa0note!",
+        buttons: [
+            true,
+            "Yes"
+        ],
+        dangerMode: true
+    }).then((willDelete)=>{
+        if (willDelete) {
+            swal("Poof!\xa0notes\xa0has\xa0been\xa0deleted!", {
+                icon: "success",
+                buttons: false
+            });
+            setTimeout(()=>{
+                swal.close();
+            }, 1000);
+            notesArr.splice(noteId, 1);
+            document.querySelectorAll(".listItem").forEach((items)=>items.remove());
+            localStorage.setItem("notesArr", JSON.stringify(notesArr));
+            showNotes();
+        }
+    });
 }
-createBtn.addEventListener("click", ()=>{
-    if (!modalBody.value) alert("Error");
-    else {
+createBtn.addEventListener("click", async ()=>{
+    modal.style.cssText = "animation: fade-out 300ms ease;";
+    setTimeout(()=>{
         modal.close();
-        document.querySelectorAll(".listItem").forEach((items)=>items.remove());
-        let listItemTitle = modalTitle.value, listItemText = modalBody.value;
-        let notes = {
-            title: listItemTitle,
-            body: listItemText
-        };
-        notesArr.push(notes);
-        localStorage.setItem("notesArr", JSON.stringify(notesArr));
-        showNotes();
         modalBody.value = "";
         modalTitle.value = "";
-    }
+    }, 300);
+    document.querySelectorAll(".listItem").forEach((items)=>items.remove());
+    let listItemTitle = modalTitle.value, listItemText = modalBody.value;
+    let notes = {
+        title: listItemTitle,
+        body: listItemText
+    };
+    notesArr.push(notes);
+    localStorage.setItem("notesArr", JSON.stringify(notesArr));
+    showNotes();
 });
 setInterval(()=>{
     if (!modalBody.value && !modalTitle.value) {

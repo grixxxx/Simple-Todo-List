@@ -2,24 +2,22 @@
 @use "./colors" as *;
 
 .createModal {
-  padding: max(2rem, 2vw);
   background-color: $accentClr;
   border: none;
-  animation: fade-in 500ms ease;
+  padding: max(2rem, 2vw);
   margin: auto;
   word-break: break-all;
   color: white;
   position: relative;
 
   &::-webkit-backdrop {
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
   }
 
   &::backdrop {
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
-    animation: fade-out 500ms ease;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
   }
 
   .modalTitle {
@@ -47,8 +45,21 @@
 @keyframes fade-in {
   0% {
     opacity: 0;
+    transform: scaleY(0);
   }
   100% {
     opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(0);
   }
 }
