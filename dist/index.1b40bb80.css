@@ -123,6 +123,15 @@ textarea {
 .enterBtn i {
   color: #fff;
   font-size: 1.5rem;
+  transition: all .3s;
+}
+
+.enterBtn:hover {
+  filter: brightness(1.1);
+}
+
+.enterBtn:hover i {
+  font-size: 2rem;
 }
 
 .createBtn {
@@ -162,39 +171,6 @@ textarea {
   margin-bottom: 1rem;
   font-family: Gilroy-light;
   font-size: 1rem;
-}
-
-.warningMessage > .buttonContainer {
-  float: right;
-}
-
-.warningMessage > .buttonContainer > * {
-  cursor: pointer;
-  border: none;
-  padding: .5em 2em;
-  font-family: gilroy-bold;
-  font-size: 1rem;
-  transition: all .2s ease-in-out;
-}
-
-.warningMessage > .buttonContainer > :nth-child(1) {
-  color: #fff;
-  background-color: #ff773d;
-  margin-right: 1.5em;
-}
-
-.warningMessage > .buttonContainer > :nth-child(1):hover {
-  filter: brightness(1.2);
-  transform: translateY(-4px);
-}
-
-.warningMessage > .buttonContainer > :nth-child(2) {
-  background-color: #0000;
-}
-
-.warningMessage > .buttonContainer > :nth-child(2):hover {
-  color: #ff773d;
-  transform: translateY(-4px);
 }
 
 @media (max-width: calc(30em - .001px)) {
@@ -255,6 +231,11 @@ textarea {
   backdrop-filter: blur(5px);
 }
 
+.createModal ::selection {
+  color: #ff773d;
+  background-color: #dbdbdb;
+}
+
 .createModal .modalTitle, .createModal .modalBody {
   color: #fff;
   width: 100%;
@@ -272,21 +253,6 @@ textarea {
   margin-top: 1.5rem;
   font-family: Gilroy-light;
   font-size: clamp(.9rem, 3vw, 1.5rem);
-}
-
-.warningMessage {
-  border: none;
-  margin: 30vh auto;
-  padding: 2em 3em;
-}
-
-.warningMessage .warningTitle {
-  color: #7e7e7e;
-}
-
-.warningMessage .warningQuestion {
-  padding-block: 1em;
-  font-size: 1rem;
 }
 
 @keyframes fade-in {
@@ -313,6 +279,10 @@ textarea {
   }
 }
 
+html {
+  scrollbar-width: thin;
+}
+
 body {
   justify-content: center;
   align-items: none;
@@ -325,11 +295,16 @@ body {
   position: relative;
 }
 
+body ::selection {
+  color: #dbdbdb;
+  background-color: #ff773d;
+}
+
 body main {
   color: #dbdbdb;
   text-align: center;
-  width: calc(80vw + 2em);
-  margin-block: 2rem;
+  width: 90vw;
+  margin-block: 2em;
 }
 
 body main .note-container {
@@ -340,15 +315,16 @@ body main .note-container {
 }
 
 body main .note-container .listItem {
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: none;
   color: #333;
   z-index: 1;
+  word-break: break-word;
   background-color: #fff;
   border-radius: 10px;
   flex-direction: column-reverse;
   gap: .5rem;
-  padding: 1.5em 2em;
+  padding: 2em;
   display: flex;
   position: relative;
   box-shadow: 0 10px 20px #0003;
@@ -357,18 +333,19 @@ body main .note-container .listItem {
 body main .note-container .listItem .listItemContainer {
   max-width: 90ch;
   text-align: start;
-  line-height: 1.7;
 }
 
 body main .note-container .listItem .listItemContainer .listItemContainer-title {
+  margin-bottom: 1.625rem;
   font-family: Gilroy-light;
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-size: clamp(1.3rem, 3vw, 2rem);
   font-weight: bold;
 }
 
 body main .note-container .listItem .listItemContainer .listItemContainer-message {
-  opacity: .7;
+  color: #646464;
   font-size: 1rem;
+  line-height: 1.7;
 }
 
 .titleContainer {
@@ -381,7 +358,7 @@ body main .note-container .listItem .listItemContainer .listItemContainer-messag
 }
 
 .titleContainer .searchInput {
-  background: #dbdbdb;
+  background: #ececec;
   border: none;
   border-radius: 10px;
   padding-inline: 1.5rem;
@@ -389,7 +366,7 @@ body main .note-container .listItem .listItemContainer .listItemContainer-messag
 }
 
 .titleContainer .searchInput:focus {
-  outline: 1px solid #ff773d;
+  outline: 2px solid #ff773d;
 }
 
 .titleContainer .searchInput::-webkit-input-placeholder {

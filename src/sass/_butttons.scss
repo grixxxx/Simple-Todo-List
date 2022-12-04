@@ -68,6 +68,15 @@
   i {
     font-size: 1.5rem;
     color: $primaryClr;
+    transition: 0.3s ease;
+  }
+
+  &:hover {
+    filter: brightness(1.1);
+
+    & i {
+      font-size: 2rem;
+    }
   }
 }
 

@@ -37,6 +37,10 @@
         border: none;
         background-color: transparent;
       }
+
+      .hides {
+        display: none !important;
+      }
     </style>
   </head>
   <body>
@@ -44,7 +48,12 @@
       <section class="titleContainer">
         <h1>noted<span>.</span></h1>
 
-        <input class="searchInput" type="search" placeholder="Search" />
+        <input
+          class="searchInput"
+          data-search
+          type="search"
+          placeholder="Search"
+        />
       </section>
 
       <button class="enterBtn">

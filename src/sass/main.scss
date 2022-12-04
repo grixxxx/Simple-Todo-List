@@ -6,6 +6,10 @@
 @use "./mixins" as *;
 @use "./fonts" as *;
 
+html {
+  scrollbar-width: thin;
+}
+
 body {
   @include flexProp(center, none, none, none);
   min-height: 100vh;
@@ -14,11 +18,16 @@ body {
   background-color: $primaryClr;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100%25' width='100%25'%3E%3Cdefs%3E%3Cpattern id='doodad' width='20' height='20' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform='rotate(135)'%3E%3Crect width='100%25' height='100%25' fill='rgba(255, 255, 255,1)'/%3E%3Ccircle cx='40' cy='20' r='0.25' fill='rgba(26, 32, 44,1)'/%3E%3Ccircle cx='0' cy='20' r='1' fill='rgba(255, 119, 61,1)'/%3E%3Ccircle cx='40' cy='20' r='1' fill='rgba(255, 119, 61,1)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23doodad)' height='200%25' width='200%25'/%3E%3C/svg%3E ");
 
+  ::selection {
+    background-color: $accentClr;
+    color: $secondaryClr;
+  }
+
   main {
     color: $secondaryClr;
     text-align: center;
-    margin-block: 2rem;
-    width: calc(80vw + 2em);
+    margin-block: 2em;
+    width: 90vw;
 
     .note-container {
       display: grid;
@@ -27,8 +36,8 @@ body {
       position: relative;
 
       .listItem {
-        @include flexProp(space-between, none, column-reverse, 0.5rem);
-        padding: 1.5em 2em;
+        @include flexProp(flex-end, none, column-reverse, 0.5rem);
+        padding: 2em 2em;
         border-radius: 10px;
         color: $textClr;
         background-color: $primaryClr;
@@ -36,21 +45,23 @@ body {
         box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.199);
         z-index: 1;
         position: relative;
+        word-break: break-word;
 
         .listItemContainer {
           max-width: 90ch;
           text-align: start;
-          line-height: 1.7;
 
           .listItemContainer-title {
             font-family: $fontLight;
             font-weight: bold;
-            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            margin-bottom: 1.625rem;
           }
 
           .listItemContainer-message {
             font-size: 1rem;
-            opacity: 0.7;
+            line-height: 1.7;
+            color: $fadeClr;
           }
         }
       }
@@ -67,10 +78,10 @@ body {
     font-family: $fontLight;
     border-radius: 10px;
     border: none;
-    background: $secondaryClr;
+    background: #ececec;
 
     &:focus {
-      outline: 1px solid $accentClr;
+      outline: 2px solid $accentClr;
     }
 
     &::-webkit-input-placeholder {

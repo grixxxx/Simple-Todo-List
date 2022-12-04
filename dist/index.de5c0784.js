@@ -19,9 +19,9 @@ closeBtn.addEventListener("click", ()=>{
     }, 300);
 });
 const createBtn = document.querySelector(".createBtn");
-async function showNotes() {
+function showNotes() {
     notesArr.forEach((note, index)=>{
-        let listOfItem = `<li class="listItem">
+        const listOfItem = `<li class="listItem">
           <div class="listItemContainer">
             <h1 class="listItemContainer-title">${note.title}</h1>
 
@@ -98,5 +98,14 @@ setInterval(()=>{
         modalCreateBtn.style.cssText = "background-color: #dbdbdb; color: #ff773d";
     }
 }, 500);
+const searchInput = document.querySelector("[data-search]");
+searchInput.addEventListener("keyup", (e)=>{
+    const searchValue = e.target.value.toLowerCase();
+    const ListItemData = document.querySelectorAll(".listItem");
+    ListItemData.forEach((filteredNotes)=>{
+        if (!filteredNotes.innerText.toLowerCase().includes(searchValue)) filteredNotes.classList.add("hides");
+        else filteredNotes.classList.remove("hides");
+    });
+});
 
 //# sourceMappingURL=index.de5c0784.js.map

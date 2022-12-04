@@ -20,6 +20,11 @@
     backdrop-filter: blur(5px);
   }
 
+  ::selection {
+    background-color: $secondaryClr;
+    color: $accentClr;
+  }
+
   .modalTitle {
     font-size: clamp(1.3rem, 4vw, 2.5rem);
     background-color: transparent;
