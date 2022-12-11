@@ -26,7 +26,7 @@ body {
   main {
     color: $secondaryClr;
     text-align: center;
-    margin-block: 2em;
+    margin-bottom: 2em;
     width: 90vw;
 
     .note-container {
@@ -34,6 +34,14 @@ body {
       grid-gap: 1.5em;
       word-break: break-all;
       position: relative;
+
+      .note-reminder {
+        transform: translateY(20vh);
+        font-size: clamp(0.9rem, 3vw, 1.5rem);
+        display: none;
+        position: absolute;
+        width: 100%;
+      }
 
       .listItem {
         @include flexProp(flex-end, none, column-reverse, 0.5rem);

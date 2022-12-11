@@ -379,7 +379,7 @@ body ::selection {
 body main {
   color: #dbdbdb;
   text-align: center;
-  margin-block: 2em;
+  margin-bottom: 2em;
   width: 90vw;
 }
 body main .note-container {
@@ -387,6 +387,13 @@ body main .note-container {
   grid-gap: 1.5em;
   word-break: break-all;
   position: relative;
+}
+body main .note-container .note-reminder {
+  transform: translateY(20vh);
+  font-size: clamp(0.9rem, 3vw, 1.5rem);
+  display: none;
+  position: absolute;
+  width: 100%;
 }
 body main .note-container .listItem {
   display: -webkit-box;

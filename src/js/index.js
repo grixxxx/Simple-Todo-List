@@ -2,8 +2,8 @@ const modalBtn = document.querySelector(".enterBtn");
 const list = document.querySelector("ul");
 
 const modal = document.querySelector(".createModal");
-const modalBody = document.querySelector(".modalBody");
 const modalTitle = document.querySelector(".modalTitle");
+const modalBody = document.querySelector(".modalBody");
 const modalCreateBtn = document.querySelector(".createBtn");
 
 const notesArr = JSON.parse(localStorage.getItem("notesArr") || "[]");
@@ -93,11 +93,11 @@ createBtn.addEventListener("click", async () => {
   document.querySelectorAll(".listItem").forEach((items) => items.remove());
 
   let listItemTitle = modalTitle.value,
-    listItemText = modalBody.value;
+    listItemBody = modalBody.value;
 
   let notes = {
     title: listItemTitle,
-    body: listItemText,
+    body: listItemBody,
   };
 
   notesArr.push(notes);
@@ -105,6 +105,8 @@ createBtn.addEventListener("click", async () => {
 
   showNotes();
 });
+
+const noteReminder = document.querySelector(".note-reminder");
 
 setInterval(() => {
   if (!modalBody.value && !modalTitle.value) {
@@ -115,7 +117,15 @@ setInterval(() => {
     modalCreateBtn.removeAttribute("disabled");
     modalCreateBtn.style.cssText = "background-color: #dbdbdb; color: #ff773d";
   }
-}, 500);
+
+  const listItem = document.querySelector(".listItem");
+
+  !list.contains(listItem)
+    ? (noteReminder.style.display = "block")
+    : (noteReminder.style.display = "none");
+
+  console.log(listItem.innerText);
+}, 300);
 
 const searchInput = document.querySelector("[data-search]");
 
@@ -125,10 +135,8 @@ searchInput.addEventListener("keyup", (e) => {
   const ListItemData = document.querySelectorAll(".listItem");
 
   ListItemData.forEach((filteredNotes) => {
-    if (!filteredNotes.innerText.toLowerCase().includes(searchValue)) {
-      filteredNotes.classList.add("hides");
-    } else {
-      filteredNotes.classList.remove("hides");
-    }
+    !filteredNotes.innerText.toLowerCase().includes(searchValue)
+      ? filteredNotes.classList.add("hides")
+      : filteredNotes.classList.remove("hides");
   });
 });
